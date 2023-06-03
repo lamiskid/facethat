@@ -6,24 +6,24 @@ import io.dropwizard.core.setup.Environment;
 
 public class facethatApplication extends Application<facethatConfiguration> {
 
-    public static void main(final String[] args) throws Exception {
-        new facethatApplication().run(args);
-    }
+  public static void main(final String[] args) throws Exception {
+    new facethatApplication().run(args);
+  }
 
-    @Override
-    public String getName() {
-        return "facethat";
-    }
+  @Override
+  public String getName() {
+    return "facethat";
+  }
 
-    @Override
-    public void initialize(final Bootstrap<facethatConfiguration> bootstrap) {
-        // TODO: application initialization
-    }
+  @Override
+  public void initialize(final Bootstrap<facethatConfiguration> bootstrap) {
+    // TODO: application initialization
+  }
 
-    @Override
-    public void run(final facethatConfiguration configuration,
-                    final Environment environment) {
-        // TODO: implement application
-    }
+  @Override
+  public void run(final facethatConfiguration configuration,
+      final Environment environment) {
+    // TODO: implement application
+  }
 
 }

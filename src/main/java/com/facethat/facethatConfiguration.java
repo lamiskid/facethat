@@ -6,5 +6,5 @@ import org.hibernate.validator.constraints.*;
 import jakarta.validation.constraints.*;
 
 public class facethatConfiguration extends Configuration {
-    // TODO: implement service configuration
+  // TODO: implement service configuration
 }
