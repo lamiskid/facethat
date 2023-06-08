@@ -4,10 +4,10 @@ import io.dropwizard.core.Application;
 import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
 
-public class facethatApplication extends Application<facethatConfiguration> {
+public class FaceThatApplication extends Application<FaceThatConfiguration> {
 
   public static void main(final String[] args) throws Exception {
-    new facethatApplication().run(args);
+    new FaceThatApplication().run(args);
   }
 
   @Override
@@ -16,12 +16,12 @@ public class facethatApplication extends Application<facethatConfiguration> {
   }
 
   @Override
-  public void initialize(final Bootstrap<facethatConfiguration> bootstrap) {
+  public void initialize(final Bootstrap<FaceThatConfiguration> bootstrap) {
     // TODO: application initialization
   }
 
   @Override
-  public void run(final facethatConfiguration configuration,
+  public void run(final FaceThatConfiguration configuration,
       final Environment environment) {
     // TODO: implement application
   }

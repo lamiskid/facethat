@@ -153,7 +153,7 @@
   </dependencyManagement>
   <properties>
     <dropwizard.version>4.0.0</dropwizard.version>
-    <mainClass>com.facethat.facethatApplication</mainClass>
+    <mainClass>com.facethat.FaceThatApplication</mainClass>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
