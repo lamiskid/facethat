@@ -1,5 +1,16 @@
+template: Hello,%s!
+
+defaultName: ${DW_DEFAULT_NAME:- Abolade}
+
+
 logging:
   level: INFO
   loggers:
     com.facethat: DEBUG
+
+
+
+
+
+
 

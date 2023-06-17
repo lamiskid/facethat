@@ -1,5 +1,6 @@
 package com.facethat;
 
+import com.facethat.resources.HomeResources;
 import io.dropwizard.core.Application;
 import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
@@ -23,7 +24,11 @@ public class FaceThatApplication extends Application<FaceThatConfiguration> {
   @Override
   public void run(final FaceThatConfiguration configuration,
       final Environment environment) {
-    // TODO: implement application
+    HomeResources resource = new HomeResources(
+        configuration.getTemplate(),
+        configuration.getDefaultName()
+    );
+    environment.jersey().register(resource);
   }
 
 }
