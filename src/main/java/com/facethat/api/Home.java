@@ -4,21 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Home {
 
-  private long id;
+  private long name;
   private String description;
 
   public Home(long id, String description){
-    this.id =id;
+    this.name =id;
     this.description = description;
   }
 
   @JsonProperty
-  public long getId() {
-    return id;
+  public long getName() {
+    return name;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setName(long id) {
+    this.name = id;
   }
 
   @JsonProperty
