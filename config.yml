@@ -1,6 +1,9 @@
-template: Hello,%s!
+template: Hello
 
-defaultName: ${DW_DEFAULT_NAME:- Abolade}
+defaultName: FACE THAT APPLICATION
+
+apiKey: cd560cc936194884874165310231706
+
 
 
 logging:

@@ -26,8 +26,9 @@ public class FaceThatApplication extends Application<FaceThatConfiguration> {
       final Environment environment) {
     HomeResources resource = new HomeResources(
         configuration.getTemplate(),
-        configuration.getDefaultName()
-    );
+        configuration.getDefaultName(),
+        configuration.getApiKey()
+        );
     environment.jersey().register(resource);
   }
 

@@ -12,6 +12,9 @@ public class FaceThatConfiguration extends Configuration {
   @NotEmpty
   private String defaultName = "Stranger";
 
+  @NotEmpty
+  private String apiKey;
+
 
   @JsonProperty
   public String getTemplate() {
@@ -31,5 +34,10 @@ public class FaceThatConfiguration extends Configuration {
   @JsonProperty
   public void setDefaultName(String name) {
     this.defaultName = name;
+  }
+
+  @JsonProperty
+  public String getApiKey() {
+    return apiKey;
   }
 }
