@@ -35,7 +35,7 @@ public class HomeResources {
   }
 
   @GET
-  @Path("weather")
+  @Path("/weather")
   public  Response getAClient(){
 
     Client client  = ClientBuilder.newClient();
