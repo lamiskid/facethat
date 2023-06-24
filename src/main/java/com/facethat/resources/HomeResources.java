@@ -57,7 +57,7 @@ public class HomeResources {
 
 
     System.out.println(result.toString());
-        ///Converts Weather  object to Json (as String)
+        ///Converts Weather  object to Json (as String)d
        ObjectMapper mapper =new ObjectMapper();
        String convertedObject=mapper.writeValueAsString(result);
 
