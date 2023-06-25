@@ -2,11 +2,10 @@ package com.facethat.resources;
 
 import com.facethat.core.Current;
 import com.facethat.core.Weather;
-import com.fasterxml.jackson.core.JsonParser;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -14,8 +13,6 @@ import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import java.io.InputStream;
-import org.hibernate.validator.internal.util.logging.Log;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
