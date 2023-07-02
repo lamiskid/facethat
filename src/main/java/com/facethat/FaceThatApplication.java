@@ -7,29 +7,29 @@ import io.dropwizard.core.setup.Environment;
 
 public class FaceThatApplication extends Application<FaceThatConfiguration> {
 
-  public static void main(final String[] args) throws Exception {
-    new FaceThatApplication().run(args);
-  }
+    public static void main(final String[] args) throws Exception {
+        new FaceThatApplication().run(args);
+    }
 
-  @Override
-  public String getName() {
-    return "facethat";
-  }
+    @Override
+    public String getName() {
+        return "facethat";
+    }
 
-  @Override
-  public void initialize(final Bootstrap<FaceThatConfiguration> bootstrap) {
-    // TODO: application initialization
-  }
+    @Override
+    public void initialize(final Bootstrap<FaceThatConfiguration> bootstrap) {
+        // TODO: application initialization
+    }
 
-  @Override
-  public void run(final FaceThatConfiguration configuration,
-      final Environment environment) {
-    HomeResources resource = new HomeResources(
-        configuration.getTemplate(),
-        configuration.getDefaultName(),
-        configuration.getApiKey()
+    @Override
+    public void run(final FaceThatConfiguration configuration,
+                    final Environment environment) {
+        HomeResources resource = new HomeResources(
+                configuration.getTemplate(),
+                configuration.getDefaultName(),
+                configuration.getApiKey()
         );
-    environment.jersey().register(resource);
-  }
+        environment.jersey().register(resource);
+    }
 
 }
