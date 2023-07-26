@@ -13,5 +13,24 @@ public class Current {
     @JsonProperty
     private Integer is_day;
 
+    public Current() {
+    }
 
+    public Current(String temp_c, String temp_f) {
+        this.temp_c = temp_c;
+        this.temp_f = temp_f;
+    }
+
+
+    public String getTemp_c() {
+        return temp_c;
+    }
+
+    public String getTemp_f() {
+        return temp_f;
+    }
+
+    public Integer getIs_day() {
+        return is_day;
+    }
 }
