@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.facethat</groupId>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <artifactId>facethat</artifactId>
-  <name>facethat</name>
-  <version>1.0-SNAPSHOT</version>
   <build>
     <pluginManagement>
       <plugins>
@@ -45,22 +43,8 @@
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
         <configuration>
           <createDependencyReducedPom>true</createDependencyReducedPom>
-          <transformers>
-            <transformer />
-            <transformer>
-              <mainClass>${mainClass}</mainClass>
-            </transformer>
-          </transformers>
           <filters>
             <filter>
               <artifact>*:*</artifact>
@@ -71,7 +55,21 @@
               </excludes>
             </filter>
           </filters>
+          <transformers>
+            <transformer/>
+            <transformer>
+              <mainClass>${mainClass}</mainClass>
+            </transformer>
+          </transformers>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
@@ -98,10 +96,10 @@
         <artifactId>maven-source-plugin</artifactId>
         <executions>
           <execution>
-            <id>attach-sources</id>
             <goals>
               <goal>jar</goal>
             </goals>
+            <id>attach-sources</id>
           </execution>
         </executions>
       </plugin>
@@ -109,15 +107,29 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <executions>
           <execution>
-            <id>attach-javadocs</id>
             <goals>
               <goal>jar</goal>
             </goals>
+            <id>attach-javadocs</id>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>dropwizard-dependencies</artifactId>
+        <groupId>io.dropwizard</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${dropwizard.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <groupId>com.facethat</groupId>
+  <location>facethat</location>
+  <modelVersion>4.0.0</modelVersion>
   <profiles>
     <profile>
       <id>java11+</id>
@@ -126,13 +138,19 @@
       </properties>
     </profile>
   </profiles>
+  <properties>
+    <dropwizard.version>4.0.0</dropwizard.version>
+    <mainClass>com.facethat.FaceThatApplication</mainClass>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <reporting>
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <configuration>
-          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
           <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
         </configuration>
       </plugin>
       <plugin>
@@ -140,21 +158,5 @@
       </plugin>
     </plugins>
   </reporting>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.dropwizard</groupId>
-        <artifactId>dropwizard-dependencies</artifactId>
-        <version>${dropwizard.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <properties>
-    <dropwizard.version>4.0.0</dropwizard.version>
-    <mainClass>com.facethat.FaceThatApplication</mainClass>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
+  <version>1.0-SNAPSHOT</version>
 </project>
