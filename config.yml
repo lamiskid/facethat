@@ -2,7 +2,20 @@ template: Hello
 
 defaultName: FACE THAT APPLICATION
 
-apiKey: cd560cc936194884874165310231706
+apiKey: ${apikey}
+
+
+# Database settings.
+database:
+  # the name of the JDBC driver, mysql in our case
+  driverClass: com.mysql.cj.jdbc.Driver
+  # the username
+  user: root
+  # the password
+  password: 123456
+  # the JDBC URL; the database is called
+  url: jdbc:mysql://localhost:3306/express
+
 
 
 
