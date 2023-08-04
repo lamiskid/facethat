@@ -1,6 +1,7 @@
 package com.facethat;
 
-import com.facethat.core.Current;
+import com.facethat.core.dto.Current;
+import com.facethat.core.service.WeatherService;
 import com.facethat.db.WeatherDao;
 import com.facethat.resources.HomeResources;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
@@ -44,16 +45,18 @@ public class FaceThatApplication extends Application<FaceThatConfiguration> {
 
         final WeatherDao dao = jdbi.onDemand(WeatherDao.class);
 
+
         jdbi.registerRowMapper(Current.class,
                 (rs, ctx) ->
                         new Current(rs.getString(3),
-                                rs.getString(4)));
+                                rs.getString(4), rs.getInt(5)));
+
+        WeatherService weatherService = new WeatherService(dao, configuration.getApiKey());
+
         HomeResources resource = new HomeResources(
                 configuration.getTemplate(),
                 configuration.getDefaultName(),
-                configuration.getApiKey(),
-                dao
-        );
+                weatherService);
         dao.createWeatherTable();
         environment.jersey().register(resource);
         environment.jersey().register(dao);

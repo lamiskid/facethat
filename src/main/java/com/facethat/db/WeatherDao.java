@@ -1,6 +1,6 @@
 package com.facethat.db;
 
-import com.facethat.core.Current;
+import com.facethat.core.dto.Current;
 import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
@@ -15,7 +15,7 @@ public interface WeatherDao {
             "is_day int ,date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)")
     void createWeatherTable();
 
-    @SqlUpdate("insert into weather (name,temp_c,temp_f,is_day) values (:name,:temp_c,:temp_f,is_day)")
+    @SqlUpdate("INSERT INTO weather (name,temp_c,temp_f,is_day) VALUES (:name,:temp_c,:temp_f,:is_day)")
     void insert(
             @Bind("name") String name,
             @Bind("temp_c") String temp_c,
@@ -23,13 +23,16 @@ public interface WeatherDao {
             @Bind("is_day") Integer isDay);
 
 
-    @SqlQuery("select * from weather where name = :name")
+    @SqlQuery("SELECT * FROM weather WHERE name = :name")
     Current getCity(@Bind("name") String name);
 
-    @SqlQuery("select DATE(date) from weather where name = :name")
+    @SqlUpdate("DELETE  FROM weather WHERE date < now() - interval 1 DAY")
+    void deleteCityGreaterThanADay();
+
+    @SqlQuery("SELECT DATE(date) FROM weather WHERE name = :name")
     String getTimeSavedToDatabase(@Bind("name") String name);
 
-    @SqlQuery("delete from weather where name = :name")
+    @SqlQuery("DELETE FROM weather WHERE name = :name")
     String deleteCity(@Bind("name") String name);
 
 
